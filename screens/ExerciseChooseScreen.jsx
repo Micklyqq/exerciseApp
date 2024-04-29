@@ -4,6 +4,10 @@ import * as SecureStore from 'expo-secure-store';
 import {useEffect, useState} from "react";
 import enterGym from "../assets/images/enterGym.jpg"
 import gymPause from "../assets/images/gymPause.jpg"
+import testGym from "../assets/diferrent/man-warm-up.png"
+import testGym2 from "../assets/diferrent/girl-hands-up.png"
+import testGym3 from "../assets/diferrent/leg-warm-up.png"
+import testGym4 from "../assets/diferrent/warm-up.png"
 import ExerciseCard from "../components/ExerciseCard";
 import DatabaseInteraction from "../logic/DatabaseInteraction";
 export default function ExerciseChooseScreen({navigation,route}) {
@@ -58,10 +62,10 @@ export default function ExerciseChooseScreen({navigation,route}) {
   return (
       <>
       <View style={styles.mainBox}>
-          <ExerciseCard image={enterGym} name={"Вводная гимнастика"} info={"физические упражнения, проводимые до работы с целью подготовки организма к предстоящей деятельности"} data={enterExercises} navigation={navigation}/>
-          <ExerciseCard image={gymPause} name={"Физкультурная паузка"} info={"форма производственной гимнастики, проводимая в первую и вторую половины рабочего дня в течение 5-6 минут"} data={pauseExercises} navigation={navigation}/>
-          <ExerciseCard image={enterGym} name={"Физкультурная минутка"} info={"малая форма активного отдыха, в виде кратковременной физкультурной паузы, которая проводится для того, чтобы локально воздействовать на утомленную группу мышц."} data={minuteExercises} navigation={navigation}/>
-          <ExerciseCard image={enterGym} name={"Микропауза"} info={"самая короткая форма производственной гимнастики, длящаяся всего 20-30 с, снижая при этом общее или локальное утомление, путем частичного снижения или повышения возбудимости центральной нервной системы."} data={microPauseExercises} navigation={navigation} />
+          <ExerciseCard image={testGym} name={"Вводная гимнастика"} info={"физические упражнения, проводимые до работы с целью подготовки организма к предстоящей деятельности"} data={enterExercises} navigation={navigation}/>
+          <ExerciseCard image={testGym2} name={"Физкультурная пауза"} info={"форма производственной гимнастики, проводимая в первую и вторую половины рабочего дня в течение 5-6 минут"} data={pauseExercises} navigation={navigation}/>
+          <ExerciseCard image={testGym3} name={"Физкультурная минутка"} info={"малая форма активного отдыха, в виде кратковременной физкультурной паузы, которая проводится для того, чтобы локально воздействовать на утомленную группу мышц."} data={minuteExercises} navigation={navigation}/>
+          <ExerciseCard image={testGym4} name={"Микропауза"} info={"самая короткая форма производственной гимнастики, длящаяся всего 20-30 с, снижая при этом общее или локальное утомление, путем частичного снижения или повышения возбудимости центральной нервной системы."} data={microPauseExercises} navigation={navigation} />
       </View>
       </>
   );
