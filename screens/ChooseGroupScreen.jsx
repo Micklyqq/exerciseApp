@@ -1,35 +1,45 @@
 
-import {TouchableOpacity} from "react-native";
+import {TouchableOpacity,StyleSheet} from "react-native";
 import {Text, View, Button, RadioButton, RadioGroup, Dividers,Colors} from 'react-native-ui-lib';
 import styled from "styled-components/native";
-import * as SecureStore from 'expo-secure-store';
 import {useState} from "react";
+import { saveData,getData } from "../functions/GroupDataManipulation";
 
 export default function ChooseGroupScreen({navigation}) {
     const [selectedGroup, setSelectedGroup] = useState('groupOne');
-    async function saveData(value) {
-        try {
-            await SecureStore.setItemAsync('group', value);
-            console.log('Data saved successfully!');
-        } catch (error) {
-            console.error('Error saving data:', error);
-        }
-    }
 
     const handleRadioButtonChange = (value) => {
         setSelectedGroup(value);
     };
 
     const handleButtonClick = () => {
-       saveData(selectedGroup);
+       saveData(selectedGroup).then(()=>{
         navigation.navigate({
             name: 'ChooseExercise',
             params: { groupChange: selectedGroup },
             merge: true,
         });
+       });
+       
     };
 
+    const [currentGroup,setCurrentGroup] = useState(null);
+    getData().then((data)=>setCurrentGroup(data));
 
+    function renderCurrentGroup(){
+        switch (currentGroup) {
+            case 'groupOne':
+                return <Text style={styles.currentGroup} >Текущая группа: Группа 1</Text>;
+            case 'groupTwo':
+                return <Text style={styles.currentGroup}>Текущая группа: Группа 2</Text>;
+            case 'groupThree':
+                return <Text style={styles.currentGroup}>Текущая группа: Группа 3</Text>;
+            case 'groupFour':
+                return <Text style={styles.currentGroup}>Текущая группа: Группа 4</Text>;
+            default:
+                return <Text style={styles.currentGroup}>Текущая группа: Не выбрана</Text>;
+        }
+    }
 
     return (
        <View flex paddingL-50 paddingR-50 paddingT-20 >
@@ -37,6 +47,7 @@ export default function ChooseGroupScreen({navigation}) {
                Профессии для удобства поделенны на 4 группы. У каждой группы свои
                упражнения. Выберите свою группу на основании приведенного описания
            </Text>
+           {renderCurrentGroup()}
            <RadioGroup initialValue={'groupOne'} onValueChange={handleRadioButtonChange}>
                <View marginT-20 >
                    <RadioButton value={'groupOne'} label={'Группа 1'}/>
@@ -59,3 +70,11 @@ export default function ChooseGroupScreen({navigation}) {
        </View>
     );
 }
+const styles = StyleSheet.create({
+    currentGroup:{
+        color: "#7416E0",
+        fontSize:16,
+        textAlign:"center",
+        fontWeight:"bold"
+    },
+})
