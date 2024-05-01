@@ -3,7 +3,7 @@ import {TouchableOpacity,StyleSheet} from "react-native";
 import {Text, View, Button, RadioButton, RadioGroup, Dividers,Colors} from 'react-native-ui-lib';
 import styled from "styled-components/native";
 import {useState} from "react";
-import { saveData,getData } from "../functions/GroupDataManipulation";
+import { saveData,getData } from "../logic/GroupDataManipulation";
 
 export default function ChooseGroupScreen({navigation}) {
     const [selectedGroup, setSelectedGroup] = useState('groupOne');
@@ -13,7 +13,7 @@ export default function ChooseGroupScreen({navigation}) {
     };
 
     const handleButtonClick = () => {
-       saveData(selectedGroup).then(()=>{
+       saveData("group",selectedGroup).then(()=>{
         navigation.navigate({
             name: 'ChooseExercise',
             params: { groupChange: selectedGroup },
@@ -24,7 +24,7 @@ export default function ChooseGroupScreen({navigation}) {
     };
 
     const [currentGroup,setCurrentGroup] = useState(null);
-    getData().then((data)=>setCurrentGroup(data));
+    getData("group").then((data)=>setCurrentGroup(data));
 
     function renderCurrentGroup(){
         switch (currentGroup) {
