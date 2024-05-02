@@ -1,6 +1,7 @@
 import {ScrollView, StyleSheet} from 'react-native';
 import React, {useState} from 'react';
 import { View, Text, Image, TouchableOpacity, Colors, Button, ProgressBar } from 'react-native-ui-lib';
+import Timer from "../components/Timer";
 export default function ExerciseScreen({navigation,route}) {
 const {data} = route.params
     const [page,setPage] = useState(0);
@@ -25,8 +26,8 @@ const {data} = route.params
 
             </View> */}
 
-             
-             
+                <Timer></Timer>
+
                 <Text style={styles.counterText}>{`${page+1}/${data.length}`}</Text>
                 
             <ProgressBar progress={progressData} progressColor={Colors.violet30} style={{width:"95%",alignSelf:"center"}} />
@@ -94,7 +95,7 @@ const {data} = route.params
             <View>
                 <View style={styles.infoBlock}>
                     <ScrollView>
-                        <Text text80 center style={styles.textDesign}>{data[page].content+data[page].recomendation}</Text>
+                        <Text text70 center style={styles.textDesign}>{data[page].content+data[page].recomendation}</Text>
                     </ScrollView>
                 </View>
             </View>
@@ -162,7 +163,6 @@ const styles = StyleSheet.create({
         fontSize:30,
         color:Colors.violet30,
         alignSelf:'center',
-        marginTop:'30%'
     },
     exerciseHeader:{
         fontSize:20,
