@@ -1,9 +1,7 @@
-import {StyleSheet, TouchableOpacity} from 'react-native';
-import {Button, Card, Chip, Image, Text, View, Colors, ActionBar} from 'react-native-ui-lib';
+import {StyleSheet} from 'react-native';
+import {View} from 'react-native-ui-lib';
 import * as SecureStore from 'expo-secure-store';
 import {useEffect, useState} from "react";
-import enterGym from "../assets/images/enterGym.jpg"
-import gymPause from "../assets/images/gymPause.jpg"
 import testGym from "../assets/diferrent/man-warm-up.png"
 import testGym2 from "../assets/diferrent/girl-hands-up.png"
 import testGym3 from "../assets/diferrent/leg-warm-up.png"

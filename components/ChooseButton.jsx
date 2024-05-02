@@ -1,8 +1,6 @@
-import { Text, View, Button, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import { useFonts } from "expo-font";
-import * as SplashScreen from "expo-splash-screen";
-import { useCallback } from "react";
+
 
 const ButtonText = styled.Text`
   color: #232222;

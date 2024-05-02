@@ -1,6 +1,6 @@
 import {ScrollView, StyleSheet} from 'react-native';
 import React, {useState} from 'react';
-import { View, Text, Image, TouchableOpacity, Colors, Button, ProgressBar } from 'react-native-ui-lib';
+import { View, Text, Colors, Button, ProgressBar } from 'react-native-ui-lib';
 import Timer from "../components/Timer";
 export default function ExerciseScreen({navigation,route}) {
 const {data} = route.params

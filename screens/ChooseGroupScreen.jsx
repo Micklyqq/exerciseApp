@@ -1,7 +1,6 @@
 
-import {TouchableOpacity,StyleSheet} from "react-native";
-import {Text, View, Button, RadioButton, RadioGroup, Dividers,Colors} from 'react-native-ui-lib';
-import styled from "styled-components/native";
+import {StyleSheet} from "react-native";
+import {Text, View, Button, RadioButton, RadioGroup, Colors} from 'react-native-ui-lib';
 import {useState} from "react";
 import { saveData,getData } from "../logic/GroupDataManipulation";
 

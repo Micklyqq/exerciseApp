@@ -1,7 +1,6 @@
 import {StyleSheet, TouchableOpacity} from 'react-native';
 import {Button, Card, Image, Text, View, Colors, Hint} from 'react-native-ui-lib';
-import * as SecureStore from 'expo-secure-store';
-import {useEffect, useState} from "react";
+import { useState} from "react";
 
 
 export default function ExerciseCard({image,name,info,data,navigation}) {
