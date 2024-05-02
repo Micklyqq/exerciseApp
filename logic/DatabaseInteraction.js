@@ -1,5 +1,4 @@
 import * as FileSystem from 'expo-file-system';
-import * as SecureStore from 'expo-secure-store';
 class DatabaseInteraction{
 
 
