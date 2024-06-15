@@ -2,7 +2,7 @@
 import {StyleSheet} from "react-native";
 import {Text, View, Button, RadioButton, RadioGroup, Colors} from 'react-native-ui-lib';
 import {useState} from "react";
-import { saveData,getData } from "../logic/GroupDataManipulation";
+import { saveData,getData } from "../logic/SecureStoreDataManipulation";
 
 export default function ChooseGroupScreen({navigation}) {
     const [selectedGroup, setSelectedGroup] = useState('groupOne');
