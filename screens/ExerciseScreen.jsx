@@ -2,13 +2,14 @@ import {ScrollView, StyleSheet} from 'react-native';
 import React, {useState} from 'react';
 import { View, Text, Colors, Button, ProgressBar } from 'react-native-ui-lib';
 import Timer from "../components/Timer";
+import DisplayVideo from "../components/DisplayVideo";
 export default function ExerciseScreen({navigation,route}) {
 const {data} = route.params
     const [page,setPage] = useState(0);
     const progressStep = 100/data.length
     const [progressData,setProgressData] = useState(progressStep)
     return (
-        <View flex>
+        <ScrollView style={{display: "flex"}}>
 
 
             {/* <View style={styles.counter}>
@@ -26,8 +27,8 @@ const {data} = route.params
 
             </View> */}
 
-                <Timer></Timer>
-
+                {/*<Timer></Timer>*/}
+                <DisplayVideo data = {data} page = {page}/>
                 <Text style={styles.counterText}>{`${page+1}/${data.length}`}</Text>
                 
             <ProgressBar progress={progressData} progressColor={Colors.violet30} style={{width:"95%",alignSelf:"center"}} />
@@ -39,7 +40,7 @@ const {data} = route.params
 
                 {(page!==0)&&(
                     <Button
-                        label={'<---'}
+                        label={'Назад'}
                         backgroundColor={Colors.violet30}
                         onPress={() => {
                             setPage(page-1);
@@ -52,7 +53,7 @@ const {data} = route.params
 
                 {(page===0)&&(
                     <Button
-                        label={'<---'}
+                        label={'Назад'}
                         backgroundColor={Colors.violet30}
                         onPress={() => setPage(page)}
                         fullWidth={true}
@@ -64,7 +65,7 @@ const {data} = route.params
                 </View>
                 {(page+1!==data.length)&&(
                     <Button
-                        label={'--->'}
+                        label={'Вперёд'}
                         backgroundColor={Colors.violet30}
                         onPress={() => {
                             setPage(page+1);
@@ -110,7 +111,7 @@ const {data} = route.params
             {/*        style={styles.buttonContainer}*/}
             {/*    />*/}
             {/*)}*/}
-        </View>
+        </ScrollView>
     );
 }
 const styles = StyleSheet.create({

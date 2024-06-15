@@ -22,6 +22,11 @@ let customFonts = {
 
 export default function App() {
     const Stack = createNativeStackNavigator();
+
+    const downloadVideo = async () =>{
+
+    }
+
     const downloadDatabase = async () => {
         try {
             const sourcePath = require('./data/ExerciseDatabase.json');
@@ -29,10 +34,10 @@ export default function App() {
 
             // Проверяем, существует ли файл уже в целевой директории
             const fileInfo = await FileSystem.getInfoAsync(destinationUri);
-            if (fileInfo.exists) {
-                console.log('File already exists, no need to copy.');
-                return;
-            }
+            // if (fileInfo.exists) {
+            //     console.log('File already exists, no need to copy.');
+            //     return;
+            // }
 
             // Записываем содержимое в целевой файл
             await FileSystem.writeAsStringAsync(destinationUri, JSON.stringify(sourcePath));
